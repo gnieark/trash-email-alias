@@ -1,9 +1,9 @@
-# trash-email-alias
-a dovecot sieve 's script and configuration to generate a temporary random alias
+# Trash-email-alias
+A dovecot sieve 's script and configuration to generate a temporary random alias.
 
-# usage
+# Usage
 Just send an email to the configured em-mail generator. It will respond you and indicate what is your alias.
-You can test it by sending a mail to [ getalias Arobaze tinad.fr ]
+You can test it by sending a mail to [ getalias Arobaze tinad.fr ].
 
 # Configure
 
@@ -52,3 +52,4 @@ On /etc/dovecot/dovecot.conf my plugin section looks like:
  
  Add purge.sh on your crontab. Evrey 10 minutes is enougth.
  
+ Add the filters on yours sieve rules. Sample on this repo ./global.sieve file.
