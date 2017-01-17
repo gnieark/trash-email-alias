@@ -10,17 +10,17 @@ You can test it by sending a mail to [ getalias Arobaze tinad.fr ]
 You need an e-mail server with dovecot and sieve. The mail box  structure is the classical one.
 Add a colomn named "temporary" type Boolean, default 0 to the table alias. So alias table structure is:
 
-+-----------+--------------+------+-----+---------------------+-------+
-| Field     | Type         | Null | Key | Default             | Extra |
-+-----------+--------------+------+-----+---------------------+-------+
-| address   | varchar(255) | NO   | PRI |                     |       |
-| goto      | text         | NO   |     | NULL                |       |
-| domain    | varchar(255) | NO   |     |                     |       |
-| created   | datetime     | NO   |     | 0000-00-00 00:00:00 |       |
-| modified  | datetime     | NO   |     | 0000-00-00 00:00:00 |       |
-| active    | tinyint(1)   | NO   |     | 1                   |       |
-| temporary | tinyint(1)   | NO   |     | 0                   |       |
-+-----------+--------------+------+-----+---------------------+-------+
+    +-----------+--------------+------+-----+---------------------+-------+
+    | Field     | Type         | Null | Key | Default             | Extra |
+    +-----------+--------------+------+-----+---------------------+-------+
+    | address   | varchar(255) | NO   | PRI |                     |       |
+    | goto      | text         | NO   |     | NULL                |       |
+    | domain    | varchar(255) | NO   |     |                     |       |
+    | created   | datetime     | NO   |     | 0000-00-00 00:00:00 |       |
+    | modified  | datetime     | NO   |     | 0000-00-00 00:00:00 |       |
+    | active    | tinyint(1)   | NO   |     | 1                   |       |
+    | temporary | tinyint(1)   | NO   |     | 0                   |       |
+    +-----------+--------------+------+-----+---------------------+-------+
 
 
 
