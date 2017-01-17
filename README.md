@@ -50,6 +50,6 @@ On /etc/dovecot/dovecot.conf my plugin section looks like:
  Change your mysql credentials on  cron/purge.sh and execute/genalias.sh
  In my case, this files are owned by the unix user "dovecot".
  
- Add purge.sh on your crontab. Evrey 10 minutes is enougth.
+ Add purge.sh on your crontab. Every 10 minutes is enougth.
  
  Add the filters on yours sieve rules. Sample on this repo ./global.sieve file.
