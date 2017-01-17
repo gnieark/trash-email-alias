@@ -6,9 +6,12 @@ MYSQLPATH="/usr/bin/mysql"
 MYSQLDB="postfix"
 MYSQLUSER="postfix"
 MYSQLPWD="******"
+LOGGERPATH="/usr/bin/logger"
+LOGFILE="/var/log/genalias.log"
+
 TTL="3600"
 
-$MYSQLPATH -u $MYSQLDB -p$MYSQLPWD << EOF
+$MYSQLPATH -u $MYSQLUSER -p$MYSQLPWD $MYSQLDB<< EOF
   UPDATE alias
   SET active='0'
   WHERE DOMAIN='tinad.fr'
@@ -16,3 +19,6 @@ $MYSQLPATH -u $MYSQLDB -p$MYSQLPWD << EOF
   AND created < (UNIX_TIMESTAMP() - $TTL)
   AND temporary='1';
 EOF
+
+$LOGGERPATH -s "Inactivate temporary alias older than 1 hour" 2> $LOGFILE
+exit 0

@@ -20,6 +20,8 @@ MYSQLPWD="******"
 OPENSSLPATH="/usr/bin/openssl"
 DOMAIN="tinad.fr"
 LOGGERPATH="/usr/bin/logger"
+LOGFILE="/var/log/genalias.log"
+
 #escape mail:
 printf -v MAIL "%q" "$1"
 
@@ -67,7 +69,5 @@ ALIASFULL=`$MYSQLPATH -B -u $MYSQLUSER -p$MYSQLPWD -D $MYSQLDB --disable-column-
 fi
 
 printf "Hi, Your requested alias is $ALIASFULL, You will receive all mails sending to this alias during one hour from now. Thanks for using this service."
-
-$LOGGERPATH -i -p genalias.info "Activate alias $ALIASFULL FOR $MAIL"
+$LOGGERPATH -s "Activate alias $ALIASFULL FOR $MAIL" 2> $LOGFILE
 exit 0	
-
