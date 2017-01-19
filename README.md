@@ -1,6 +1,8 @@
 # Trash-email-alias
 A dovecot sieve 's script and configuration to generate a temporary random alias.
 
+Read more on my blog (french) https://blog-du-grouik.tinad.fr/post/2017/01/18/Alias-mail-temporaire
+
 # Usage
 Just send an email to the configured em-mail generator. It will respond you and indicate what is your alias.
 You can test it by sending a mail to [ getalias Arobaze tinad.fr ].
@@ -47,9 +49,11 @@ On /etc/dovecot/dovecot.conf my plugin section looks like:
 	(...)
       }
 
- Change your mysql credentials on  cron/purge.sh and execute/genalias.sh
- In my case, this files are owned by the unix user "dovecot".
- 
- Add purge.sh on your crontab. Every 10 minutes is enougth.
- 
- Add the filters on yours sieve rules. Sample on this repo ./global.sieve file.
+Copy this repo's files where they're needed ;)
+
+Change your mysql credentials on  cron/purge.sh and execute/genalias.sh
+In my case, this files are owned by the unix user "dovecot".
+
+Add purge.sh on your crontab. Every 10 minutes is enougth.
+
+Add the filters on yours sieve rules. Sample on this repo ./global.sieve file.

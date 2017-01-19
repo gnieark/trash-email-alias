@@ -1,24 +1,24 @@
 #!/bin/bash
-#Gnieark https://blog-du-grouik.tinad.fr 2017 
+#Gnieark https://blog-du-grouik.tinad.fr 2017  
 #GNU GPL V2 license
-#inactivate alias olders than on 
+#inactivate alias olders than on  
 MYSQLPATH="/usr/bin/mysql"
-MYSQLDB="postfix"
+MYSQLDB="postfix"  
 MYSQLUSER="postfix"
-MYSQLPWD="******"
+MYSQLPWD="******"  
 LOGGERPATH="/usr/bin/logger"
-LOGFILE="/var/log/genalias.log"
+LOGFILE="/var/log/genalias.log"  
+DOMAIN="tinad.fr"
+TTL="3600"  
 
-TTL="3600"
-
-$MYSQLPATH -u $MYSQLUSER -p$MYSQLPWD $MYSQLDB<< EOF
+$MYSQLPATH -u $MYSQLUSER -p$MYSQLPWD $MYSQLDB<< EOF  
   UPDATE alias
-  SET active='0'
-  WHERE DOMAIN='tinad.fr'
-  AND active = '1'
-  AND created < (UNIX_TIMESTAMP() - $TTL)
-  AND temporary='1';
+  SET active='0'  
+  WHERE DOMAIN='$DOMAIN'
+  AND active = '1'  
+  AND modified > (UNIX_TIMESTAMP() - $TTL)
+  AND temporary='1';  
 EOF
-
+  
 $LOGGERPATH -s "Inactivate temporary alias older than 1 hour" 2> $LOGFILE
-exit 0
+exit 0 
